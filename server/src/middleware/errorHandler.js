@@ -8,3 +8,4 @@ export const errorHandler = (err, req, res, next) => {
     message: err.message || 'Server error',
   })
 }
+// Export the middleware functions
