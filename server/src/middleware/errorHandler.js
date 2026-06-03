@@ -10,3 +10,4 @@ export const errorHandler = (err, req, res, next) => {
 }
 // Export the middleware functions
 // This allows you to import them in your main server file and use them in the Express app
+// Example usage in your main server file (e.g., app.js):
