@@ -1,21 +1,156 @@
 * { box-sizing: border-box }
-body { margin: 0; font-family: Inter, system-ui, Arial, sans-serif; background: #f4f6f8; color: #0f172a }
-#root { max-width: 900px; margin: 0 auto; padding: 2rem }
-.title { font-size: 2rem; margin-bottom: 1rem }
-.form { display: flex; gap: .5rem; margin-bottom: 1rem }
-.input { flex: 1; padding: .6rem .8rem; border: 1px solid #cbd5e1; border-radius: .5rem; background: #fff }
-.btn { padding: .6rem 1rem; border-radius: .5rem; border: 1px solid #0ea5e9; background: #0ea5e9; color: #fff }
-.btn:hover { filter: brightness(0.95) }
-.btn--danger { border-color: #ef4444; background: #ef4444 }
-.list { display: flex; flex-direction: column; gap: .75rem }
-.todo { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .75rem; border: 1px solid #e2e8f0; border-radius: .75rem; background: #fff }
-.todo--done { opacity: .7 }
-.todo-main { display: flex; align-items: center; gap: .75rem; flex: 1 }
-.todo-text { display: flex; flex-direction: column }
-.todo-title { font-weight: 600 }
-.todo-desc { color: #64748b }
-.todo-edit { display: flex; gap: .5rem; flex: 1 }
-.todo-actions { display: flex; gap: .5rem }
-.loading { padding: .5rem 0 }
-.error { color: #ef4444; padding: .5rem 0 }
-.empty { color: #64748b; padding: .5rem 0 }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+  color: #0f172a;
+}
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+}
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+.form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.input {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #0f172a;
+}
+.input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+.btn {
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.btn--danger {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+.ai-section {
+  margin-top: 2rem;
+  text-align: left;
+}
+.ai-section h2,
+.ai-section h3 {
+  color: #1e3a8a;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 1rem;
+  background: #fff;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.todo:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+.todo--done {
+  opacity: 0.8;
+  background: #ecfdf5;
+  border-color: #d1fae5;
+}
+.todo--done .todo-title {
+  text-decoration: line-through;
+  color: #15803d;
+}
+.todo-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+.todo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.todo-title {
+  font-weight: 700;
+  color: #1e40af;
+}
+.todo-desc {
+  color: #475569;
+  margin-top: 0.25rem;
+}
+.todo-edit {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.todo-actions {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.loading,
+.error,
+.empty {
+  padding: 0.75rem 0;
+}
+.loading {
+  color: #0f172a;
+}
+.error {
+  color: #dc2626;
+}
+.empty {
+  color: #475569;
+}
+@media (max-width: 640px) {
+  .form,
+  .todo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .todo-actions {
+    justify-content: flex-start;
+  }
+}
